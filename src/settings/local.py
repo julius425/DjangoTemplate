@@ -7,6 +7,19 @@ ALLOWED_HOSTS = [
     '0.0.0.0',
 ]
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
+INSTALLED_APPS += [
+
+    # debug
+    'django_extensions',
+    'debug_toolbar',
+    'flower',
+
+]
+
 pass
 try:
     from .local import *

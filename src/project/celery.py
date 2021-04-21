@@ -4,7 +4,7 @@ from celery import Celery
 from celery.schedules import crontab
 
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.development')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.local')
 
 app = Celery('project')
 app.config_from_object('django.conf:settings', namespace='CELERY')
@@ -14,7 +14,7 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     # test celery tasks
     'hello': {
-        'task': 'core.tasks.hello',
+        'task': 'apps.api.tasks.hello',
         'schedule': crontab(minute='*/1')
     },
 }

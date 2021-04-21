@@ -27,7 +27,7 @@ def get_env(key, default=None):
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', '')
 
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 INSTALLED_APPS = [
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
 
     # installed
     'rest_framework',
-    'django_extensions',
 
     # user apps
     'apps.api',
@@ -57,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # debug
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
